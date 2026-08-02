@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gayatri Pulidindi | Aesthetic Pinterest Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@500;600;700&family=Marck+Script&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-desk: #f6f1eb;
+      --paper-main: #fffdf9;
+      --sticky-yellow: #fff2a3;
+      --sticky-pink: #ffd6e8;
+      --sticky-blue: #d0f0fd;
+      --sticky-green: #d4f7d4;
+      --sticky-purple: #e8d7ff;
+      --ink-color: #2b2b2a;
+      --tape-color: rgba(240, 230, 205, 0.85);
+      --accent-coral: #ff7675;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-desk);
+      background-image: 
+        radial-gradient(#e2d9cd 1.5px, transparent 1.5px);
+      background-size: 20px 20px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--ink-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 15px 60px 15px;
+      overflow-x: hidden;
+    }
+
+    /* 📌 STICKER DECORATIONS */
+    .sticker {
+      position: absolute;
+      z-index: 15;
+      font-size: 1.8rem;
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15));
+      animation: floatSticker 3s ease-in-out infinite alternate;
+      user-select: none;
+    }
+
+    @keyframes floatSticker {
+      0% { transform: translateY(0px) rotate(-5deg); }
+      100% { transform: translateY(-8px) rotate(5deg); }
+    }
+
+    /* HEADER & TABS NAVIGATION */
+    .header-board {
+      background: var(--paper-main);
+      padding: 15px 25px;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      border: 2px dashed #dbd3c5;
+      margin-bottom: 30px;
+      position: relative;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    .nav-tab {
+      background: #ffffff;
+      border: 2px solid var(--ink-color);
+      padding: 8px 18px;
+      border-radius: 25px;
+      font-family: 'Fredoka', cursive;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 2px 3px 0px var(--ink-color);
+      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-tab:hover, .nav-tab.active {
+      transform: translateY(-3px) rotate(-1deg);
+      box-shadow: 4px 6px 0px var(--ink-color);
+      background: var(--sticky-yellow);
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      width: 100%;
+      max-width: 680px;
+      position: relative;
+    }
+
+    /* SECTIONS ANIMATION & DISPLAY */
+    .tab-content {
+      display: none;
+      animation: fadeInScrapbook 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeInScrapbook {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97) rotate(-1deg);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+      }
+    }
+
+    /* SCRAPBOOK CARD DESIGN */
+    .scrap-card {
+      background: var(--paper-main);
+      padding: 35px 28px;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+      position: relative;
+      border: 1px solid #e2dad0;
+      margin-bottom: 30px;
+    }
+
+    /* WASHI TAPE EFFECT */
+    .tape {
+      width: 130px;
+      height: 30px;
+      background-color: var(--tape-color);
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-1.5deg);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      border-left: 3px dashed rgba(0,0,0,0.1);
+      border-right: 3px dashed rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+
+    .tape-corner {
+      width: 80px;
+      height: 25px;
+      background-color: var(--tape-color);
+      position: absolute;
+      top: -10px;
+      right: 15px;
+      transform: rotate(25deg);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      z-index: 10;
+    }
+
+    /* TYPOGRAPHY */
+    .handwritten {
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      color: #666;
+    }
+
+    .marker-heading {
+      font-family: 'Marck Script', cursive;
+      font-size: 2.6rem;
+      color: var(--ink-color);
+      margin-bottom: 5px;
+    }
+
+    /* POLAROID FRAME */
+    .polaroid-frame {
+      background: #ffffff;
+      padding: 12px 12px 25px 12px;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+      transform: rotate(-2deg);
+      width: 170px;
+      margin: 15px auto 25px auto;
+      border: 1px solid #eee;
+      transition: transform 0.3s ease;
+    }
+
+    .polaroid-frame:hover {
+      transform: rotate(0deg) scale(1.05);
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .polaroid-caption {
+      font-family: 'Caveat', cursive;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #444;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    /* STAMP BADGES */
+    .stamp-badge {
+      display: inline-block;
+      border: 2.5px dashed var(--accent-coral);
+      color: var(--accent-coral);
+      padding: 4px 14px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.85rem;
+      border-radius: 8px;
+      transform: rotate(-3deg);
+      background: rgba(255, 118, 117, 0.08);
+      margin-bottom: 15px;
+    }
+
+    /* PINTEREST STICKY NOTES GRID */
+    .postits-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .postit {
+      padding: 18px 12px;
+      border-radius: 6px;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      font-weight: 700;
+      box-shadow: 4px 6px 12px rgba(0,0,0,0.07);
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .postit:hover {
+      transform: scale(1.1) rotate(0deg) !important;
+      box-shadow: 8px 15px 25px rgba(0,0,0,0.15);
+      z-index: 20;
+    }
+
+    .postit:nth-child(odd) { transform: rotate(-2.5deg); }
+    .postit:nth-child(even) { transform: rotate(2deg); }
+
+    .yellow-note { background-color: var(--sticky-yellow); }
+    .pink-note { background-color: var(--sticky-pink); }
+    .blue-note { background-color: var(--sticky-blue); }
+    .green-note { background-color: var(--sticky-green); }
+    .purple-note { background-color: var(--sticky-purple); }
+
+    /* SCRAPBOOK TIMELINE / ENTRY CARDS */
+    .scrap-entry {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1.5px solid #ece6da;
+      margin-top: 20px;
+      position: relative;
+      box-shadow: 2px 4px 10px rgba(0,0,0,0.03);
+      transition: transform 0.25s ease;
+    }
+
+    .scrap-entry:hover {
+      transform: translateX(5px);
+    }
+
+    .pin-icon {
+      position: absolute;
+      top: -12px;
+      left: 15px;
+      font-size: 1.2rem;
+    }
+
+    .entry-date {
+      font-family: 'Caveat', cursive;
+      font-size: 1.35rem;
+      color: #777;
+      font-weight: 700;
+    }
+
+    .entry-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin: 4px 0;
+      color: var(--ink-color);
+    }
+
+    .entry-desc {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* BUTTONS & LINKS */
+    .social-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 25px;
+    }
+
+    .pinterest-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--ink-color);
+      border: 2px solid var(--ink-color);
+      box-shadow: 3px 4px 0px var(--ink-color);
+      background: #ffffff;
+      transition: all 0.2s ease;
+    }
+
+    .pinterest-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 6px 0px var(--ink-color);
+      background: var(--sticky-pink);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING PINTEREST STICKERS -->
+  <div class="sticker" style="top: 20px; left: 8%;">✨</div>
+  <div class="sticker" style="top: 180px; right: 10%; animation-delay: 1s;">🌸</div>
+  <div class="sticker" style="bottom: 80px; left: 5%; animation-delay: 1.5s;">🎨</div>
+
+  <!-- NAVIGATION TABS BOARD -->
+  <div class="header-board">
+    <button class="nav-tab active" onclick="switchTab('home')"><i class="fa-solid fa-house"></i> Home</button>
+    <button class="nav-tab" onclick="switchTab('skills')"><i class="fa-solid fa-wand-magic-sparkles"></i> Skills</button>
+    <button class="nav-tab" onclick="switchTab('education')"><i class="fa-solid fa-graduation-cap"></i> Education</button>
+    <button class="nav-tab" onclick="switchTab('certs')"><i class="fa-solid fa-award"></i> Certificates</button>
+  </div>
+
+  <div class="container">
+
+    <!-- 1️⃣ HOME TAB -->
+    <div id="home" class="tab-content active">
+      <div class="scrap-card" style="text-align: center;">
+        <div class="tape"></div>
+        <span class="stamp-badge">CAI-PEC'2029 🎓</span>
+
+        <!-- POLAROID PHOTO -->
+        <div class="polaroid-frame">
+          <img src="1776919775857 - Copy.jpeg" alt="Gayatri Pulidindi" class="profile-img">
+          <div class="polaroid-caption">Gayatri.p✨</div>
+        </div>
+
+        <h1 class="marker-heading" style="font-size: 3rem;">Hey, I'm Gayatri! 👋</h1>
+        <p class="handwritten">Problem Solver • Python Enthusiast • Video Editor 🎬</p>
+
+        <p style="margin: 20px 0; line-height: 1.7; font-size: 0.98rem; color: #444;">
+          Motivated second-year B.Tech CSE (Artificial Intelligence) student at Pragati Engineering College, Surampalem. Passionate about problem-solving, continuous learning, and exploring creative technical solutions.
+        </p>
+
+        <!-- SOCIAL LINKS -->
+        <div class="social-flex">
+          <a href="mailto:gayatripulidindi2008@gmail.com" class="pinterest-btn"><i class="fa-solid fa-envelope"></i> Email</a>
+          <a href="https://github.com/25A43A31F5" target="_blank" class="pinterest-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/gayatri-pulidindi" target="_blank" class="pinterest-btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="https://leetcode.com/u/25A31A43F5/" target="_blank" class="pinterest-btn"><i class="fa-solid fa-code"></i> LeetCode</a>
+          <a href="https://www.hackerrank.com/profile/25A31A43F5" target="_blank" class="pinterest-btn"><i class="fa-brands fa-hackerrank"></i> HackerRank</a>
+        </div>
+
+        <div style="margin-top: 25px; font-weight: 700; font-size: 0.9rem; color: #666;">
+          📍 Kakinada &nbsp;|&nbsp; 📞 +91 9493657663
+        </div>
+      </div>
+    </div>
+
+    <!-- 2️⃣ SKILLS TAB -->
+    <div id="skills" class="tab-content">
+      <div class="scrap-card">
+        <div class="tape"></div>
+        <div class="tape-corner"></div>
+        <h2 class="marker-heading">Skills & Creative Arsenal 💡</h2>
+        <p class="handwritten">stickers of my strengths...</p>
+
+        <div class="postits-container">
+          <div class="postit yellow-note">Python 🐍</div>
+          <div class="postit pink-note">C Language 💻</div>
+          <div class="postit blue-note">Problem Solving 🧩</div>
+          <div class="postit green-note">Video Editing 🎬</div>
+          <div class="postit purple-note">CapCut ✂️</div>
+          <div class="postit yellow-note">Communication 🗣️</div>
+          <div class="postit pink-note">Teamwork 🤝</div>
+          <div class="postit green-note">Java (Learning) ☕</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3️⃣ EDUCATION TAB -->
+    <div id="education" class="tab-content">
+      <div class="scrap-card">
+        <div class="tape"></div>
+        <h2 class="marker-heading">Education Journey 📖</h2>
+        <p class="handwritten">my learning milestones...</p>
+
+        <div class="scrap-entry">
+          <span class="pin-icon">📌</span>
+          <span class="entry-date">2025 – 2029</span>
+          <h3 class="entry-title">B.Tech in CSE (Artificial Intelligence)</h3>
+          <p class="entry-desc">Pragati Engineering College, Surampalem</p>
+        </div>
+
+        <div class="scrap-entry">
+          <span class="pin-icon">📌</span>
+          <span class="entry-date">Passed in 2025</span>
+          <h3 class="entry-title">Senior Secondary (XII) - AP State Board</h3>
+          <p class="entry-desc">Aditya Junior College — <strong>91.00% Score</strong></p>
+        </div>
+
+        <div class="scrap-entry">
+          <span class="pin-icon">📌</span>
+          <span class="entry-date">Passed in 2023</span>
+          <h3 class="entry-title">Secondary (X) - AP State Board</h3>
+          <p class="entry-desc">Aditya Public School — <strong>92.00% Score</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4️⃣ CERTIFICATES TAB -->
+    <div id="certs" class="tab-content">
+      <div class="scrap-card">
+        <div class="tape"></div>
+        <div class="tape-corner"></div>
+        <h2 class="marker-heading">Certificates & Practice 🏆</h2>
+        <p class="handwritten">always leveling up skills...</p>
+
+        <div class="scrap-entry">
+          <span class="pin-icon">🎗️</span>
+          <span class="entry-date">Pace Computers</span>
+          <h3 class="entry-title">Python & C Certification Courses</h3>
+          <p class="entry-desc">Completed core programming certification courses with hands-on practice.</p>
+        </div>
+
+        <div class="scrap-entry">
+          <span class="pin-icon">🎗️</span>
+          <span class="entry-date">NPTEL Ongoing</span>
+          <h3 class="entry-title">Joy of Computing Using Python</h3>
+          <p class="entry-desc">Deepening programming core logic and computational thinking.</p>
+        </div>
+
+        <div class="scrap-entry">
+          <span class="pin-icon">⚡</span>
+          <span class="entry-date">Active Habit</span>
+          <h3 class="entry-title">LeetCode Consistency</h3>
+          <p class="entry-desc">Consistently solving Data Structures & Algorithms problems to build analytical thinking.</p>
+        </div>
+
+        <div class="scrap-entry">
+          <span class="pin-icon">⚡</span>
+          <span class="entry-date">HackerRank Profile</span>
+          <h3 class="entry-title">Algorithmic Practice</h3>
+          <p class="entry-desc">Regularly solving domain-specific challenges.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      // Remove active class from all tabs & contents
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
+
+      // Add active class to clicked tab
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
